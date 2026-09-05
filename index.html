@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Faura — aura is what you have when you don't need it</title>
+  <meta name="description" content="Faura is a short-form video app built around a simple shift: give aura instead of likes. Join the waitlist." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="wordmark">Faura</a>
+      <nav class="nav-links">
+        <a href="story.html" class="nav-link">Our Story</a>
+        <a href="#waitlist" class="btn btn-primary btn-sm">Join the Waitlist</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="waitlist">
+      <div class="hero-glow"></div>
+      <div class="hero-inner">
+        <h1>Faura</h1>
+        <p class="hero-tagline">aura is what you have when you don't need it.</p>
+        <p class="hero-desc">A short-form video app built around a simple shift — give aura instead of likes.</p>
+
+        <!--
+          Netlify Forms: this static form is auto-detected at deploy time.
+          Submissions appear in the Netlify dashboard under Forms.
+          No backend or JS required.
+        -->
+        <form name="waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="waitlist-form">
+          <input type="hidden" name="form-name" value="waitlist" />
+          <p class="hidden-field">
+            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+          </p>
+          <input type="email" name="email" placeholder="you@example.com" aria-label="Email address" required />
+          <button type="submit" class="btn btn-primary">Join the Waitlist</button>
+        </form>
+        <p class="waitlist-note">No spam — just a note when the doors open.</p>
+      </div>
+    </section>
+
+    <section class="showcase-section" id="feed-showcase">
+      <div class="section-head">
+        <span class="eyebrow">The Feed</span>
+        <h2>Faura, running</h2>
+        <p>A real screen from the app — vertical video, and aura living where the like button used to be.</p>
+      </div>
+
+      <div class="showcase-phones reveal">
+        <img src="assets/screenshot-feed-angled.webp" alt="Faura feed, angled view" class="phone-back" width="781" height="1400" />
+        <img src="assets/screenshot-feed-front.webp" alt="Faura feed" class="phone-front" width="781" height="1400" />
+      </div>
+    </section>
+
+    <section id="what-is-faura">
+      <div class="section-head">
+        <span class="eyebrow">What is Faura</span>
+        <h2>A different kind of feedback</h2>
+        <p>Same short-video format. A different currency for what people give back.</p>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-ring"></div>
+          <h3>Give Aura, Not Likes</h3>
+          <p>Every reaction on Faura is aura — given to someone, not collected for yourself. It's presence, not a scoreboard.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-ring"></div>
+          <h3>Kindling → Ascendant</h3>
+          <p>Aura accumulates into rank across five tiers. Each one earns its own mark — the ring only grows more intricate as you rise.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-ring"></div>
+          <h3>Short-Form Video</h3>
+          <p>Quick to watch, quick to post. The format is familiar — what you do with it isn't.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-ring"></div>
+          <h3>Built Quietly</h3>
+          <p>No fireworks, no vanity counters shouting for attention. Faura is built on restraint — contained, not loud.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="ranks-section" id="ranks">
+      <div class="section-head">
+        <span class="eyebrow">The Rank System</span>
+        <h2>Five tiers, one ring</h2>
+        <p>Aura accumulates into rank. Each tier gets its own mark — the ring only grows more intricate as you rise.</p>
+      </div>
+
+      <div class="ranks-row">
+
+        <figure class="rank-badge" data-rank="kindling">
+          <div class="badge-visual">
+            <div class="avatar-wrap">
+              <img src="assets/default-avatar.webp" alt="" />
+            </div>
+            <svg class="ring-svg" viewBox="0 0 240 240" aria-hidden="true">
+              <g class="ring-rotate">
+                <circle class="ring-outer" cx="120" cy="120" r="108" />
+                <circle class="ring-inner" cx="120" cy="120" r="100" />
+                <g class="mark-sparkle" transform="translate(215,40) scale(0.85)">
+                  <path d="M0,-10 Q2.2,-2.2 10,0 Q2.2,2.2 0,10 Q-2.2,2.2 -10,0 Q-2.2,-2.2 0,-10 Z" />
+                </g>
+              </g>
+            </svg>
+          </div>
+          <figcaption>Kindling</figcaption>
+        </figure>
+
+        <figure class="rank-badge" data-rank="bloom">
+          <div class="badge-visual">
+            <div class="avatar-wrap">
+              <img src="assets/default-avatar.webp" alt="" />
+            </div>
+            <svg class="ring-svg" viewBox="0 0 240 240" aria-hidden="true">
+              <g class="ring-pulse">
+                <circle class="ring-single" cx="120" cy="120" r="104" />
+              </g>
+            </svg>
+          </div>
+          <figcaption>Bloom</figcaption>
+        </figure>
+
+        <figure class="rank-badge" data-rank="radiant">
+          <div class="badge-visual">
+            <div class="avatar-wrap">
+              <img src="assets/default-avatar.webp" alt="" />
+            </div>
+            <svg class="ring-svg" viewBox="0 0 240 240" aria-hidden="true">
+              <g class="ring-rotate">
+                <circle class="ring-outer" cx="120" cy="120" r="108" />
+                <circle class="ring-inner" cx="120" cy="120" r="100" />
+                <circle class="ring-arc" cx="120" cy="120" r="108" stroke-dasharray="170 509" transform="rotate(100 120 120)" />
+              </g>
+            </svg>
+          </div>
+          <figcaption>Radiant</figcaption>
+        </figure>
+
+        <figure class="rank-badge" data-rank="sovereign">
+          <div class="badge-visual">
+            <div class="avatar-wrap">
+              <img src="assets/default-avatar.webp" alt="" />
+            </div>
+            <svg class="ring-svg" viewBox="0 0 240 240" aria-hidden="true">
+              <g class="ring-rotate">
+                <circle class="ring-outer" cx="120" cy="120" r="108" />
+                <circle class="ring-inner" cx="120" cy="120" r="100" />
+                <path class="ring-half" d="M19.5,178 A116,116 0 1,0 194.6,31.1" />
+                <circle class="mark-dot" cx="19.5" cy="178" r="4.5" />
+              </g>
+            </svg>
+          </div>
+          <figcaption>Sovereign</figcaption>
+        </figure>
+
+        <figure class="rank-badge" data-rank="ascendant">
+          <div class="badge-visual">
+            <svg class="orbit-layer orbit-back" viewBox="0 0 240 240" aria-hidden="true">
+              <g class="star" data-orbit="0"><path d="M0,-10 Q2.2,-2.2 10,0 Q2.2,2.2 0,10 Q-2.2,2.2 -10,0 Q-2.2,-2.2 0,-10 Z" /></g>
+              <g class="star" data-orbit="1"><path d="M0,-10 Q2.2,-2.2 10,0 Q2.2,2.2 0,10 Q-2.2,2.2 -10,0 Q-2.2,-2.2 0,-10 Z" /></g>
+              <g class="star" data-orbit="2"><path d="M0,-10 Q2.2,-2.2 10,0 Q2.2,2.2 0,10 Q-2.2,2.2 -10,0 Q-2.2,-2.2 0,-10 Z" /></g>
+            </svg>
+            <div class="avatar-wrap">
+              <img src="assets/default-avatar.webp" alt="" />
+            </div>
+            <svg class="ring-svg" viewBox="0 0 240 240" aria-hidden="true">
+              <g class="ring-rotate">
+                <circle class="ring-outer" cx="120" cy="120" r="108" />
+                <circle class="ring-inner" cx="120" cy="120" r="100" />
+              </g>
+            </svg>
+            <svg class="orbit-layer orbit-front" viewBox="0 0 240 240" aria-hidden="true">
+              <g class="star" data-orbit="0"><path d="M0,-10 Q2.2,-2.2 10,0 Q2.2,2.2 0,10 Q-2.2,2.2 -10,0 Q-2.2,-2.2 0,-10 Z" /></g>
+              <g class="star" data-orbit="1"><path d="M0,-10 Q2.2,-2.2 10,0 Q2.2,2.2 0,10 Q-2.2,2.2 -10,0 Q-2.2,-2.2 0,-10 Z" /></g>
+              <g class="star" data-orbit="2"><path d="M0,-10 Q2.2,-2.2 10,0 Q2.2,2.2 0,10 Q-2.2,2.2 -10,0 Q-2.2,-2.2 0,-10 Z" /></g>
+            </svg>
+          </div>
+          <figcaption>Ascendant</figcaption>
+        </figure>
+
+      </div>
+    </section>
+
+    <section id="screenshots">
+      <div class="section-head">
+        <span class="eyebrow">A First Look</span>
+        <h2>Inside Faura</h2>
+        <p>Real screenshots land here as the app gets closer to launch.</p>
+      </div>
+
+      <div class="shot-grid shot-grid-2">
+        <div class="shot-frame shot-frame-filled">
+          <img src="assets/screenshot-aura.webp" alt="Faura aura button" />
+        </div>
+        <div class="shot-frame shot-frame-filled">
+          <img src="assets/screenshot-profile.webp" alt="Faura profile and ranks" />
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <a href="index.html" class="wordmark" style="font-size: 18px;">Faura</a>
+      <div class="footer-links">
+        <a href="story.html">Our Story</a>
+      </div>
+      <p class="footer-copy">© 2026 Faura</p>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    var orbits = [
+      { a: 116, b: 44, phi: 6,   period: 11, dir: 1,  wobbleA: 0.35, wobbleK: 0.9, phase: 0.3, scale: 0.65 },
+      { a: 110, b: 40, phi: 58,  period: 15, dir: -1, wobbleA: 0.30, wobbleK: 0.7, phase: 2.1, scale: 0.90 },
+      { a: 104, b: 36, phi: -54, period: 19, dir: 1,  wobbleA: 0.40, wobbleK: 1.1, phase: 4.4, scale: 0.50 }
+    ];
+    var cx = 120, cy = 120;
+
+    var backEls = orbits.map(function (_, i) { return document.querySelector('.orbit-back .star[data-orbit="' + i + '"]'); });
+    var frontEls = orbits.map(function (_, i) { return document.querySelector('.orbit-front .star[data-orbit="' + i + '"]'); });
+
+    if (!backEls[0]) return;
+
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function place(t) {
+      var states = orbits.map(function (o) {
+        var omega = (2 * Math.PI / o.period) * o.dir;
+        var angle = omega * t + o.wobbleA * Math.sin(o.wobbleK * t + o.phase) + o.phase * 2;
+        var cosA = Math.cos(angle), sinA = Math.sin(angle);
+        var phiRad = o.phi * Math.PI / 180;
+        var cosP = Math.cos(phiRad), sinP = Math.sin(phiRad);
+        var x = cx + o.a * cosA * cosP - o.b * sinA * sinP;
+        var y = cy + o.a * cosA * sinP + o.b * sinA * cosP;
+        var depth = (sinA + 1) / 2;
+        var s = o.scale * (0.7 + 0.4 * depth);
+        return { x: x, y: y, s: s, sinA: sinA };
+      });
+
+      var backIndex = -1, minSin = 0;
+      states.forEach(function (st, i) {
+        if (st.sinA < minSin) { minSin = st.sinA; backIndex = i; }
+      });
+
+      states.forEach(function (st, i) {
+        var transform = 'translate(' + st.x.toFixed(2) + ',' + st.y.toFixed(2) + ') scale(' + st.s.toFixed(3) + ')';
+        var isBack = i === backIndex;
+        var back = backEls[i], front = frontEls[i];
+        back.setAttribute('transform', transform);
+        back.style.opacity = isBack ? 1 : 0;
+        front.setAttribute('transform', transform);
+        front.style.opacity = isBack ? 0 : 1;
+      });
+    }
+
+    if (reduceMotion) {
+      place(0);
+      return;
+    }
+
+    function frame(ts) {
+      place(ts / 1000);
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  })();
+  </script>
+
+  <script>
+  (function () {
+    var el = document.querySelector('.showcase-phones.reveal');
+    if (!el || !('IntersectionObserver' in window)) return;
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.25 });
+
+    observer.observe(el);
+  })();
+  </script>
+
+</body>
+</html>

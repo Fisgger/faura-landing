@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Story — Faura</title>
+  <meta name="description" content="How Faura actually got built — the discarded growth plan, the tool that quietly died, the ghost user, and the wall named Apple." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="wordmark">Faura</a>
+      <nav class="nav-links">
+        <a href="story.html" class="nav-link">Our Story</a>
+        <a href="index.html#waitlist" class="btn btn-primary btn-sm">Join the Waitlist</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="story-header">
+      <h1>Our Story</h1>
+      <p>How Faura actually got built — including the parts that almost stopped it.</p>
+    </section>
+
+    <section class="story-body">
+      <p class="story-lede">
+        Faura started as a simple idea: a short-video app where people give aura instead of likes.
+        What follows isn't the highlight reel. It's the version with the math that almost killed
+        the plan, the tool that disappeared overnight, and the wall that changed the entire build
+        strategy.
+      </p>
+
+      <div class="story-beat">
+        <h2>The Math Before the Mission</h2>
+        <p>
+          Before a single screen was designed, the question was whether a short-video app — built
+          by one person, with AI handling the engineering — could realistically become a real
+          business. The research wasn't encouraging: independent data from RevenueCat shows that
+          81% of apps never reach $1,000 a month in revenue within two years. That number reset the
+          goal. It wasn't enough to make something that looked good; it had to survive that
+          statistic.
+        </p>
+        <p>
+          The early research looked at apps that did — Cal AI, Pieter Levels' Photo AI, HabitKit —
+          small teams, real revenue, no venture funding behind them. The plan for Faura targeted
+          the U.S. market from day one, where ad rates run several times higher than in Latin
+          America. A deliberate choice, not a default.
+        </p>
+      </div>
+
+      <div class="story-beat">
+        <h2>A Growth Loop That Didn't Survive Its Own Math</h2>
+        <p>
+          The first growth plan looked elegant on paper: pay for users through Meta Ads, let those
+          users generate ad revenue inside the app, and reinvest that revenue into acquiring more
+          users — a loop that funds itself.
+        </p>
+        <p>
+          Then came the real numbers. Acquiring a single user through Meta Ads costs somewhere
+          between $2.50 and $5. That same user, watching ads inside the app, generates roughly
+          $0.02 to $0.05 across their entire lifetime in the app — a cost 50 to 250 times higher
+          than the return. The plan was scrapped on the spot, before a single line of code existed,
+          because the numbers said so, not a hunch.
+        </p>
+      </div>
+
+      <div class="story-beat">
+        <h2>Designing for Restraint</h2>
+        <p>
+          The visual identity came next: a dark violet palette that avoids pure black, Instrument
+          Serif paired with Inter, and one rule that governed every decision after it — restraint
+          over spectacle. Nothing on Faura celebrates loudly.
+        </p>
+        <p>
+          That rule got tested almost immediately by its own most important element: the aura
+          button. It started as a simple icon, then went through a comic-book-inspired version
+          modeled on <em>Into the Spider-Verse</em> — vivid, kinetic, everything the rest of the app
+          was built not to be. The resolution was a compromise that held: rich, textured motion for
+          the instant of the tap, and calm for every second before and after it.
+        </p>
+      </div>
+
+      <div class="story-beat">
+        <h2>The Tool Everyone Assumes Exists</h2>
+        <p>
+          Months into building, a routine feature — trimming and editing video, the way TikTok does
+          — ran into an unexpected wall. FFmpeg, the library nearly every mobile app in the world
+          relies on for video processing, had quietly stopped being maintained in 2025, its binaries
+          pulled from official repositories. It's the kind of dependency nobody double-checks,
+          because everyone assumes it's just there.
+        </p>
+        <p>
+          The technical plan had to be rebuilt in real time — Skia took over live filters, and a
+          different library, react-native-video-trim, handled real trimming months later.
+        </p>
+      </div>
+
+      <div class="story-beat">
+        <h2>An App Full of Ghosts</h2>
+        <p>
+          For weeks, Faura worked perfectly. Comments, saves, everything — functional and stable.
+          What wasn't visible was that every session ran on a silent, anonymous login created
+          automatically in the background. There was no real authentication system yet, and nothing
+          about the app's behavior gave that away.
+        </p>
+        <p>
+          It surfaced only once mandatory onboarding was switched on for real — the moment it became
+          clear the app had been quietly running without a single real user behind it.
+        </p>
+      </div>
+
+      <div class="story-beat">
+        <h2>The Wall Named Apple</h2>
+        <p>
+          The next obstacle had nothing to do with code. Testing the app on a physical iPhone,
+          without owning a Mac, turned out to require an Apple Developer account — a mandatory $99 a
+          year, with no free path around that specific combination.
+        </p>
+        <p>
+          Rather than pay for access to a platform the app wasn't ready for yet, the decision was to
+          install Android Studio and keep building against an Android emulator, leaving Apple for a
+          later stage of the project.
+        </p>
+      </div>
+
+      <div class="story-close">
+        <p>
+          None of this is finished. Faura is still being built, one screen and one real bug at a
+          time. Google Play itself won't let it reach the public without 12 real testers active for
+          14 straight days first — so the waitlist isn't a formality, it's the actual next step.
+        </p>
+        <a href="index.html#waitlist" class="btn btn-primary">Join the Waitlist</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <a href="index.html" class="wordmark" style="font-size: 18px;">Faura</a>
+      <div class="footer-links">
+        <a href="story.html">Our Story</a>
+      </div>
+      <p class="footer-copy">© 2026 Faura</p>
+    </div>
+  </footer>
+
+</body>
+</html>
