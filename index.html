@@ -109,8 +109,10 @@
         <p>A first spark. A living halo. A crown of your own — your aura grows, your identity evolves.</p>
       </div>
 
-      <div class="prank-grid">
-        <figure class="prank-card" data-rank="none">
+      <div class="prank-carousel">
+        <button class="prank-arrow prank-prev" type="button" aria-label="Previous rank" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg></button>
+        <div class="prank-track">
+        <figure class="prank-card" data-rank="none" data-index="0" data-state="active">
           <div class="prank-meta">
             <span class="prank-number">00</span>
             <span class="prank-material">Unlit graphite</span>
@@ -125,7 +127,7 @@
           <p class="prank-detail">A clean graphite outline. No glow, no ornament: space for your first signal.</p>
         </figure>
 
-        <figure class="prank-card" data-rank="kindling">
+        <figure class="prank-card" data-rank="kindling" data-index="1">
           <div class="prank-meta">
             <span class="prank-number">01</span>
             <span class="prank-material">Smoked amethyst</span>
@@ -140,7 +142,7 @@
           <p class="prank-detail">A lilac filament, one tapered ignition and a single four-point spark. The first reward is unmistakable, but deliberately restrained.</p>
         </figure>
 
-        <figure class="prank-card" data-rank="bloom">
+        <figure class="prank-card" data-rank="bloom" data-index="2">
           <div class="prank-meta">
             <span class="prank-number">02</span>
             <span class="prank-material">Sculpted amethyst</span>
@@ -155,7 +157,7 @@
           <p class="prank-detail">Six sculpted petals grow out of an amethyst band. A fuller silhouette and a soft breath turn the first spark into a living aura.</p>
         </figure>
 
-        <figure class="prank-card" data-rank="radiant">
+        <figure class="prank-card" data-rank="radiant" data-index="3">
           <div class="prank-meta">
             <span class="prank-number">03</span>
             <span class="prank-material">Prismatic platinum</span>
@@ -170,7 +172,7 @@
           <p class="prank-detail">Eight crystalline facets and four compass points catch a precise moving highlight. A cooler, sharper silhouette signals a new level.</p>
         </figure>
 
-        <figure class="prank-card" data-rank="sovereign">
+        <figure class="prank-card" data-rank="sovereign" data-index="4">
           <div class="prank-meta">
             <span class="prank-number">04</span>
             <span class="prank-material">Rose-gold regalia</span>
@@ -185,7 +187,7 @@
           <p class="prank-detail">Layered rose-gold rails, three cut-stone settings and a grounded lower seal. Weight and symmetry replace the softer forms below it.</p>
         </figure>
 
-        <figure class="prank-card" data-rank="ascendant">
+        <figure class="prank-card" data-rank="ascendant" data-index="5">
           <div class="prank-meta">
             <span class="prank-number">05</span>
             <span class="prank-material">Celestial gold</span>
@@ -199,7 +201,10 @@
           <p class="prank-signature">You set the standard.</p>
           <p class="prank-detail">A sculpted gold crown, a faceted double bezel and an orbital constellation. Its silhouette is reserved for the summit, even with motion off.</p>
         </figure>
+        </div>
+        <button class="prank-arrow prank-next" type="button" aria-label="Next rank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m10 6 6 6-6 6"/></svg></button>
       </div>
+      <p class="prank-position" aria-live="polite"><span id="prank-position-label">1 / 6</span></p>
     </section>
 
     <section id="screenshots">
@@ -304,6 +309,75 @@
     }, { threshold: 0.25 });
 
     observer.observe(el);
+  })();
+  </script>
+
+  <script>
+  (function () {
+    var cards = [...document.querySelectorAll('.prank-card')];
+    if (!cards.length) return;
+    var prev = document.querySelector('.prank-prev');
+    var next = document.querySelector('.prank-next');
+    var label = document.getElementById('prank-position-label');
+    var index = 0;
+
+    function render() {
+      cards.forEach(function (card, i) {
+        if (i === index) card.setAttribute('data-state', 'active');
+        else card.removeAttribute('data-state');
+      });
+      prev.disabled = index === 0;
+      next.disabled = index === cards.length - 1;
+      label.textContent = (index + 1) + ' / ' + cards.length;
+    }
+
+    prev.addEventListener('click', function () {
+      if (index > 0) { index--; render(); }
+    });
+    next.addEventListener('click', function () {
+      if (index < cards.length - 1) { index++; render(); }
+    });
+
+    render();
+  })();
+  </script>
+
+  <script>
+  (function () {
+    var stars = document.querySelectorAll('.prank-card[data-rank="ascendant"] [data-rk-orbit]');
+    if (!stars.length) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var orbits = [
+      { a: 144, b: 118, tilt: -26, period: 18, phase: 0.2, s: 0.68 },
+      { a: 141, b: 116, tilt: 26, period: 25, phase: 2.15, s: 0.52 },
+      { a: 139, b: 119, tilt: -26, period: 31, phase: 4.25, s: 0.4 }
+    ];
+
+    function orbitPosition(i, t) {
+      var o = orbits[i];
+      var angle = t * 2 * Math.PI / o.period * (i === 1 ? -1 : 1) + o.phase + 0.09 * Math.sin(t * 0.5 + o.phase);
+      var tilt = o.tilt * Math.PI / 180;
+      var x = o.a * Math.cos(angle), y = o.b * Math.sin(angle);
+      return {
+        x: 160 + x * Math.cos(tilt) - y * Math.sin(tilt),
+        y: 160 + x * Math.sin(tilt) + y * Math.cos(tilt),
+        s: o.s * (0.9 + 0.1 * Math.sin(angle))
+      };
+    }
+
+    var lastTime = null, elapsed = 0;
+    function frame(ts) {
+      if (lastTime !== null) elapsed += Math.min((ts - lastTime) / 1000, 0.05);
+      lastTime = ts;
+      stars.forEach(function (el) {
+        var i = Number(el.dataset.rkOrbit);
+        var p = orbitPosition(i, elapsed);
+        el.setAttribute('transform', 'translate(' + p.x.toFixed(2) + ' ' + p.y.toFixed(2) + ') scale(' + p.s.toFixed(3) + ')');
+      });
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
   })();
   </script>
 

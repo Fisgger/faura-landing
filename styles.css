@@ -399,16 +399,60 @@ section {
   padding: 40px 24px 80px;
 }
 
-.prank-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+.prank-carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
   max-width: var(--container);
   margin: 0 auto;
 }
 
+.prank-track {
+  flex: 1 1 auto;
+  max-width: 420px;
+  min-width: 0;
+}
+
+.prank-arrow {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--border-subtle);
+  background: var(--surface);
+  color: var(--text-primary);
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.prank-arrow svg {
+  width: 18px;
+  height: 18px;
+}
+
+.prank-arrow:hover:not(:disabled) {
+  border-color: var(--border-aura);
+  color: var(--aura-primary);
+}
+
+.prank-arrow:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.prank-position {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 12px;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+
 .prank-card {
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   text-align: center;
@@ -417,6 +461,22 @@ section {
   background: var(--surface);
   border: 1px solid var(--border-subtle);
   border-radius: 20px;
+  animation: prank-fade-in 0.35s ease;
+}
+
+.prank-card[data-state="active"] {
+  display: flex;
+}
+
+@keyframes prank-fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .prank-card {
+    animation: none;
+  }
 }
 
 .prank-meta {
@@ -664,8 +724,13 @@ section {
     grid-template-columns: 1fr;
   }
 
-  .prank-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .prank-carousel {
+    gap: 10px;
+  }
+
+  .prank-arrow {
+    width: 36px;
+    height: 36px;
   }
 
   .hero {
@@ -678,10 +743,6 @@ section {
 }
 
 @media (max-width: 460px) {
-  .prank-grid {
-    grid-template-columns: 1fr;
-  }
-
   .footer-inner {
     flex-direction: column;
     align-items: flex-start;
