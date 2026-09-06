@@ -588,15 +588,21 @@ section {
 }
 
 .phone-status {
-  flex: 0 0 30px;
+  flex: 0 0 42px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 20px 0;
+  padding: 13px 22px 4px;
   font-family: var(--font-sans);
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--text-primary);
+}
+
+.phone-status svg {
+  width: 56px;
+  height: 12px;
+  flex-shrink: 0;
 }
 
 .phone-status-icons {
@@ -622,7 +628,7 @@ section {
 
 .onb-track {
   flex: 1 1 auto;
-  max-width: 340px;
+  max-width: 396px;
   min-width: 0;
 }
 
@@ -682,27 +688,29 @@ section {
 /* ---- slide 1: farm aura (ported in full: field, particles, tap-to-replay core) ---- */
 
 .onb1-phone {
-  aspect-ratio: 9 / 18.5;
+  aspect-ratio: 396 / 786;
 }
 
 .onb1-topbar {
   position: relative;
   z-index: 3;
-  flex: 0 0 40px;
-  padding: 4px 20px 0;
+  flex: 0 0 46px;
+  padding: 7px 22px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .onb1-brand {
-  font-family: var(--font-serif);
-  font-size: 15px;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.07em;
 }
 
 .onb1-skip {
-  font-family: var(--font-sans);
-  font-size: 11px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 12px;
   font-weight: 700;
   color: var(--text-primary);
 }
@@ -710,7 +718,7 @@ section {
 .onb1-hero {
   position: relative;
   flex: 1 1 auto;
-  min-height: 0;
+  min-height: 282px;
   isolation: isolate;
   display: grid;
   place-items: center;
@@ -718,10 +726,10 @@ section {
 
 .onb1-field {
   position: absolute;
-  width: 100%;
-  max-width: 300px;
-  aspect-ratio: 420 / 368;
-  top: 46%;
+  width: 420px;
+  height: 368px;
+  max-width: none;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;
@@ -829,8 +837,8 @@ section {
 }
 
 .onb1-core {
-  width: 108px;
-  height: 108px;
+  width: 180px;
+  height: 180px;
   position: relative;
   z-index: 2;
   display: grid;
@@ -845,7 +853,7 @@ section {
 
 .onb1-core-glow {
   position: absolute;
-  inset: -26px;
+  inset: -43px;
   border-radius: 50%;
   pointer-events: none;
   background: radial-gradient(circle, rgba(201, 138, 255, 0.19), rgba(138, 71, 218, 0.08) 31%, transparent 65%);
@@ -867,8 +875,8 @@ section {
 
 .onb1-star-breathe {
   position: absolute;
-  width: 59px;
-  height: 59px;
+  width: 98px;
+  height: 98px;
   display: grid;
   place-items: center;
   pointer-events: none;
@@ -889,13 +897,13 @@ section {
 
 .onb1-hero-caption {
   position: absolute;
-  bottom: 4%;
+  bottom: 8px;
   inset-inline: 0;
   text-align: center;
-  font-family: var(--font-sans);
+  font-family: 'Manrope', sans-serif;
   font-size: 10px;
   letter-spacing: 0.015em;
-  color: var(--text-muted);
+  color: #a39aa9;
 }
 
 .onb1-hero-caption::before,
@@ -905,39 +913,44 @@ section {
   vertical-align: middle;
   width: 17px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--text-muted));
+  background: linear-gradient(90deg, transparent, #947d9f);
   margin-right: 9px;
 }
 
 .onb1-hero-caption::after {
-  background: linear-gradient(90deg, var(--text-muted), transparent);
+  background: linear-gradient(90deg, #947d9f, transparent);
   margin-right: 0;
   margin-left: 9px;
 }
 
 .onb1-copy {
   position: relative;
-  padding: 8px 20px 0;
+  padding: 19px 24px 0;
   text-align: center;
 }
 
 .onb1-copy h4 {
   margin: 0;
-  font-family: var(--font-serif);
-  font-size: 24px;
-  line-height: 1.2;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 34px;
+  line-height: 1.25;
+  font-weight: 600;
+  letter-spacing: -0.075em;
 }
 
 .onb1-lead-in {
   display: block;
-  margin-bottom: 4px;
-  font-size: 15px;
-  color: var(--text-primary);
+  margin-bottom: 9px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 18px;
+  line-height: 1.4;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  color: #e3dfe9;
 }
 
 .onb1-headline {
   display: block;
-  font-style: italic;
   color: var(--aura-primary);
   background: linear-gradient(110deg, #f1e2ff 5%, #d2a2ff 35%, #bd7dfa 82%);
   -webkit-background-clip: text;
@@ -946,11 +959,12 @@ section {
 }
 
 .onb1-lede {
-  margin: 10px 0 0;
-  font-family: var(--font-sans);
-  color: var(--text-muted);
-  font-size: 12px;
-  line-height: 1.7;
+  margin: 15px 0 0;
+  font-family: 'Manrope', sans-serif;
+  color: #aaa3b1;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.8;
 }
 
 .onb1-lede span {
@@ -959,7 +973,7 @@ section {
 
 .onb1-footer {
   position: relative;
-  padding: 14px 20px 18px;
+  padding: 24px 25px 17px;
 }
 
 .onb1-progress {
@@ -968,7 +982,7 @@ section {
   align-items: center;
   gap: 7px;
   height: 8px;
-  margin-bottom: 14px;
+  margin-bottom: 20px;
 }
 
 .onb1-progress i {
@@ -988,6 +1002,10 @@ section {
 .onb1-cta {
   width: 100%;
   gap: 8px;
+  padding: 16px 38px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
 }
 
 .onb1-cta svg {
