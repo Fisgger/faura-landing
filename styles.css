@@ -384,170 +384,131 @@ section {
   }
 }
 
-/* ---------- ranks ---------- */
+/* ---------- ranks (v3 system) ---------- */
+
+.rk-svg{display:block;width:100%;height:100%;overflow:visible}
+.rk-spin{transform-origin:160px 160px;animation:rk-turn 28s linear infinite}
+.rk-ray{animation-duration:18s}.rk-counter{animation-duration:35s;animation-direction:reverse}.rk-gild{animation-duration:25s}
+.rk-breathe{transform-origin:160px 160px;animation:rk-bloom 5.8s ease-in-out infinite}
+.rk-offscreen *{animation-play-state:paused!important}
+@keyframes rk-turn{to{transform:rotate(360deg)}}
+@keyframes rk-bloom{0%,100%{transform:scale(1);opacity:.88}50%{transform:scale(1.016);opacity:1}}
+@media(prefers-reduced-motion:reduce){.rk-svg *{animation:none!important}}
 
 .ranks-section {
   padding: 40px 24px 80px;
 }
 
-.ranks-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: clamp(20px, 4vw, 48px);
+.prank-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
   max-width: var(--container);
   margin: 0 auto;
 }
 
-.rank-badge {
-  --face-bg1: #3a3a42;
-  --face-bg2: #17171b;
-  --face: #56515f;
-
-  --kindling: #9b8ae0;
-  --bloom: #a855f7;
-  --radiant: #f6f4ff;
-  --sovereign: #e9b29e;
-  --ascendant: #ffc94a;
-
-  --badge-size: clamp(88px, 11vw, 140px);
-
-  margin: 0;
+.prank-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  text-align: center;
+  gap: 4px;
+  padding: 24px 16px 28px;
+  background: var(--surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
 }
 
-.badge-visual {
+.prank-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.prank-number {
+  font-weight: 600;
+  color: var(--prank-color);
+}
+
+.prank-material {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 10px;
+}
+
+.prank-visual {
   position: relative;
-  width: var(--badge-size);
-  height: var(--badge-size);
+  width: clamp(140px, 16vw, 190px);
+  aspect-ratio: 1;
+  margin-bottom: 10px;
 }
 
-.avatar-wrap {
+.prank-visual .rk-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.prank-avatar {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 79.17%;
-  height: 79.17%;
+  width: 55%;
+  height: 55%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
   overflow: hidden;
-  background: radial-gradient(circle at 35% 30%, var(--face-bg1), var(--face-bg2) 72%);
+  background: radial-gradient(circle at 35% 30%, #3a3a42, #17171b 72%);
 }
 
-.avatar-wrap img {
+.prank-avatar img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.ring-svg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
+.prank-name {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--prank-color);
+  margin: 4px 0 0;
 }
 
-.badge-visual {
-  transition: transform 0.25s ease;
-}
-
-.rank-badge:hover .badge-visual {
-  transform: scale(1.05);
-}
-
-.ring-rotate { transform-origin: 120px 120px; animation: spin 16s linear infinite; }
-.ring-pulse { transform-origin: 120px 120px; animation: pulse 2.8s ease-in-out infinite; }
-
-@keyframes spin { to { transform: rotate(360deg); } }
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .ring-rotate, .ring-pulse { animation: none; }
-}
-
-.orbit-layer {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-  pointer-events: none;
-}
-
-.star {
-  fill: var(--ring);
-  opacity: 0;
-  filter: drop-shadow(0 0 5px var(--glow));
-  transition: opacity 0.2s ease;
-}
-
-.ring-outer {
-  fill: none;
-  stroke: var(--ring);
-  stroke-width: 2.5px;
-  filter: drop-shadow(0 0 6px var(--glow));
-}
-
-.ring-inner {
-  fill: none;
-  stroke: var(--ring);
-  stroke-width: 2.5px;
-}
-
-.ring-single {
-  fill: none;
-  stroke: var(--ring);
-  stroke-width: 7px;
-  filter: drop-shadow(0 0 8px var(--glow));
-}
-
-.ring-arc {
-  fill: none;
-  stroke: var(--arc, var(--ring));
-  stroke-width: 5px;
-  stroke-linecap: round;
-  filter: drop-shadow(0 0 8px var(--arc-glow, var(--glow)));
-}
-
-.mark-dot {
-  fill: var(--ring);
-  filter: drop-shadow(0 0 5px var(--glow));
-}
-
-.mark-sparkle {
-  fill: var(--ring);
-  filter: drop-shadow(0 0 5px var(--glow));
-}
-
-.rank-badge figcaption {
+.prank-range {
   font-family: var(--font-sans);
+  font-size: 12px;
   font-weight: 600;
-  font-size: clamp(13px, 1.4vw, 15px);
+  color: var(--text-muted);
+}
+
+.prank-signature {
+  font-family: var(--font-sans);
+  font-size: 13px;
   color: var(--text-primary);
+  margin: 10px 0 0;
 }
 
-.rank-badge[data-rank="kindling"] { --ring: var(--kindling); --glow: rgba(155, 138, 224, .85); }
-.rank-badge[data-rank="bloom"] { --ring: var(--bloom); --glow: rgba(168, 85, 247, .9); }
-.rank-badge[data-rank="radiant"] { --ring: var(--radiant); --glow: rgba(246, 244, 255, .6); --arc: #ffffff; --arc-glow: rgba(255, 255, 255, .95); }
-.rank-badge[data-rank="sovereign"] { --ring: var(--sovereign); --glow: rgba(233, 178, 158, .75); }
-.rank-badge[data-rank="ascendant"] { --ring: var(--ascendant); --glow: rgba(255, 201, 74, .95); }
-
-.ring-half {
-  fill: none;
-  stroke: var(--ring);
-  stroke-width: 2.5px;
-  stroke-linecap: round;
-  filter: drop-shadow(0 0 6px var(--glow));
+.prank-detail {
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin: 8px 0 0;
 }
+
+.prank-card[data-rank="none"] { --prank-color: #a39baa; }
+.prank-card[data-rank="kindling"] { --prank-color: #b7a1f4; }
+.prank-card[data-rank="bloom"] { --prank-color: #c28bff; }
+.prank-card[data-rank="radiant"] { --prank-color: #eee9ff; }
+.prank-card[data-rank="sovereign"] { --prank-color: #edb99a; }
+.prank-card[data-rank="ascendant"] { --prank-color: #f4cd75; }
 
 /* ---------- screenshots ---------- */
 
@@ -703,6 +664,10 @@ section {
     grid-template-columns: 1fr;
   }
 
+  .prank-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .hero {
     padding: 90px 20px 70px;
   }
@@ -713,6 +678,10 @@ section {
 }
 
 @media (max-width: 460px) {
+  .prank-grid {
+    grid-template-columns: 1fr;
+  }
+
   .footer-inner {
     flex-direction: column;
     align-items: flex-start;
