@@ -652,8 +652,6 @@
 
   <script>
   (function () {
-    var stars = document.querySelectorAll('.prank-card[data-rank="ascendant"] [data-rk-orbit]');
-    if (!stars.length) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     var orbits = [
@@ -674,18 +672,28 @@
       };
     }
 
-    var lastTime = null, elapsed = 0;
-    function frame(ts) {
-      if (lastTime !== null) elapsed += Math.min((ts - lastTime) / 1000, 0.05);
-      lastTime = ts;
-      stars.forEach(function (el) {
-        var i = Number(el.dataset.rkOrbit);
-        var p = orbitPosition(i, elapsed);
-        el.setAttribute('transform', 'translate(' + p.x.toFixed(2) + ' ' + p.y.toFixed(2) + ') scale(' + p.s.toFixed(3) + ')');
-      });
+    function startOrbit(selector) {
+      var stars = document.querySelectorAll(selector);
+      if (!stars.length) return;
+      var lastTime = null, elapsed = 0;
+      function frame(ts) {
+        if (lastTime !== null) elapsed += Math.min((ts - lastTime) / 1000, 0.05);
+        lastTime = ts;
+        stars.forEach(function (el) {
+          var i = Number(el.dataset.rkOrbit);
+          var p = orbitPosition(i, elapsed);
+          el.setAttribute('transform', 'translate(' + p.x.toFixed(2) + ' ' + p.y.toFixed(2) + ') scale(' + p.s.toFixed(3) + ')');
+        });
+        requestAnimationFrame(frame);
+      }
       requestAnimationFrame(frame);
     }
-    requestAnimationFrame(frame);
+
+    // Main ranks carousel's Ascendant card.
+    startOrbit('.prank-card[data-rank="ascendant"] [data-rk-orbit]');
+    // Onboarding slide 3's big "current rank" Ascendant display (the small rail
+    // thumbnail stays still on purpose, same as the source study).
+    startOrbit('.onb3-current-art[data-onb3-current="5"] [data-rk-orbit]');
   })();
   </script>
 
