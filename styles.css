@@ -691,7 +691,7 @@ section {
   aspect-ratio: 396 / 786;
 }
 
-.onb1-topbar {
+.onb-topbar {
   position: relative;
   z-index: 3;
   flex: 0 0 46px;
@@ -701,14 +701,14 @@ section {
   justify-content: space-between;
 }
 
-.onb1-brand {
+.onb-brand {
   font-family: 'Unbounded', sans-serif;
   font-size: 13px;
   font-weight: 500;
   letter-spacing: -0.07em;
 }
 
-.onb1-skip {
+.onb-skip {
   font-family: 'Manrope', sans-serif;
   font-size: 12px;
   font-weight: 700;
@@ -1011,6 +1011,187 @@ section {
 .onb1-cta svg {
   width: 16px;
   height: 16px;
+}
+
+.onb1-progress[data-active="1"] i:first-child {
+  width: 6px;
+  border-radius: 50%;
+  background: rgba(245, 242, 255, 0.25);
+  box-shadow: none;
+}
+
+.onb1-progress[data-active="1"] i:nth-child(2) {
+  width: 20px;
+  border-radius: 99px;
+  background: var(--aura-primary);
+  box-shadow: 0 0 10px rgba(181, 123, 255, 0.48);
+}
+
+/* ---- slide 2: your moments (feed + profile, exact source proportions) ---- */
+
+.onb2-phone {
+  aspect-ratio: 396 / 786;
+}
+
+.onb2-showcase {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+}
+
+.onb2-viewport {
+  position: relative;
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+.onb2-scene {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 9px 0 8px;
+}
+
+.onb2-scene-active {
+  display: flex;
+}
+
+.onb2-shot {
+  position: relative;
+  height: 100%;
+  width: auto;
+  border-radius: 32px;
+  background: #08080d;
+  overflow: hidden;
+  box-shadow: 0 20px 28px -16px rgba(0, 0, 0, 0.9), 0 0 22px -12px rgba(209, 161, 255, 0.22);
+  container-type: inline-size;
+}
+
+.onb2-shot-feed {
+  aspect-ratio: 994 / 2016;
+}
+
+.onb2-shot-profile {
+  aspect-ratio: 689 / 1389;
+}
+
+.onb2-canvas {
+  display: block;
+  position: absolute;
+}
+
+.onb2-canvas img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.onb2-canvas-feed {
+  width: 206.036217%;
+  left: -53.722334%;
+  top: -0.694444%;
+  aspect-ratio: 1;
+}
+
+.onb2-canvas-profile {
+  width: 113.35269%;
+  left: -6.96662%;
+  top: -0.50396%;
+  aspect-ratio: 781 / 1400;
+}
+
+.onb2-demo-followers {
+  position: absolute;
+  left: 32.5%;
+  top: 37.86%;
+  width: 14.5%;
+  height: 3.15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ede8fb;
+  background: linear-gradient(110deg, #08051d, #06051a);
+  font-family: 'Manrope', sans-serif;
+  font-size: 4.04cqw;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.onb2-scene-pick {
+  position: relative;
+  flex: 0 0 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.onb2-pick {
+  border: 0;
+  background: transparent;
+  color: var(--text-muted);
+  font-family: 'Manrope', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 8px 9px 12px;
+}
+
+.onb2-pick[aria-pressed="true"] {
+  color: var(--text-primary);
+  box-shadow: inset 0 -2px 0 var(--aura-primary);
+}
+
+.onb2-pick-number {
+  font-size: 9px;
+  margin-right: 6px;
+  color: var(--aura-primary);
+}
+
+.onb2-copy {
+  position: relative;
+  padding: 15px 23px 0;
+  text-align: center;
+}
+
+.onb2-copy-block {
+  display: none;
+}
+
+.onb2-copy-active {
+  display: block;
+}
+
+.onb2-copy-block h4 {
+  margin: 0;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 27px;
+  line-height: 1.28;
+  font-weight: 600;
+  letter-spacing: -0.075em;
+}
+
+.onb2-copy-block h4 em {
+  font-style: normal;
+  color: var(--aura-primary);
+  background: linear-gradient(110deg, #f1e2ff, #d2a2ff 35%, #bd7dfa 82%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.onb-lede-2 {
+  margin: 11px 0 0;
+  font-family: 'Manrope', sans-serif;
+  color: #aaa3b1;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.8;
+}
+
+.onb-lede-2 span {
+  display: block;
 }
 
 @keyframes onb1-core-drift {

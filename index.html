@@ -227,7 +227,7 @@
                 <span>12:30</span>
                 <svg viewBox="0 0 58 12" fill="currentColor"><rect x="1" y="8" width="2.2" height="3" rx=".4"/><rect x="5" y="6" width="2.2" height="5" rx=".4"/><rect x="9" y="3" width="2.2" height="8" rx=".4"/><rect x="13" y="0" width="2.2" height="11" rx=".4"/><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" d="M21 3.7a10 10 0 0 1 12 0m-10 3a6 6 0 0 1 8 0m-6 2.5a2.6 2.6 0 0 1 4 0"/><rect x="40" y="1" width="14" height="9" rx="2" fill="none" stroke="currentColor"/><rect x="42" y="3" width="10" height="5" rx="1"/><rect x="55.5" y="3.5" width="1.5" height="4" rx=".6"/></svg>
               </div>
-              <div class="onb1-topbar"><span class="onb1-brand">faura</span><span class="onb1-skip">Skip</span></div>
+              <div class="onb-topbar"><span class="onb-brand">faura</span><span class="onb-skip">Skip</span></div>
               <div class="onb1-hero">
                 <div class="onb1-field" aria-hidden="true">
                   <div class="onb1-field-aura"></div>
@@ -305,14 +305,50 @@
           </article>
 
           <article class="onb-slide" data-index="1">
-            <div class="phone-frame">
-              <div class="phone-status"><span>12:30</span><span class="phone-status-icons">●●●</span></div>
-              <div class="onb-visual">
-                <img src="assets/screenshot-feed-front.webp" alt="The Faura feed" />
+            <div class="phone-frame onb2-phone">
+              <div class="phone-status" aria-hidden="true">
+                <span>12:30</span>
+                <svg viewBox="0 0 58 12" fill="currentColor"><rect x="1" y="8" width="2.2" height="3" rx=".4"/><rect x="5" y="6" width="2.2" height="5" rx=".4"/><rect x="9" y="3" width="2.2" height="8" rx=".4"/><rect x="13" y="0" width="2.2" height="11" rx=".4"/><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" d="M21 3.7a10 10 0 0 1 12 0m-10 3a6 6 0 0 1 8 0m-6 2.5a2.6 2.6 0 0 1 4 0"/><rect x="40" y="1" width="14" height="9" rx="2" fill="none" stroke="currentColor"/><rect x="42" y="3" width="10" height="5" rx="1"/><rect x="55.5" y="3.5" width="1.5" height="4" rx=".6"/></svg>
+              </div>
+              <div class="onb-topbar"><span class="onb-brand">faura</span><span class="onb-skip">Skip</span></div>
+
+              <div class="onb2-showcase">
+                <div class="onb2-viewport">
+                  <div class="onb2-scene onb2-scene-active" data-onb2-scene="feed">
+                    <div class="onb2-shot onb2-shot-feed">
+                      <span class="onb2-canvas onb2-canvas-feed"><img src="assets/onb2-feed.webp" alt="Ignacio's Faura feed, showing 77K Aura, 1.2K comments, 349 saves and 349 shares." /></span>
+                    </div>
+                  </div>
+                  <div class="onb2-scene" data-onb2-scene="profile">
+                    <div class="onb2-shot onb2-shot-profile">
+                      <span class="onb2-canvas onb2-canvas-profile"><img src="assets/screenshot-profile.webp" alt="Ignacio's Faura profile, with 877 Aura Farmed and a grid of his clips." /><span class="onb2-demo-followers">12.8K</span></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="onb2-scene-pick">
+                  <button type="button" class="onb2-pick" data-onb2-pick="feed" aria-pressed="true"><span class="onb2-pick-number">01</span>The feed</button>
+                  <button type="button" class="onb2-pick" data-onb2-pick="profile" aria-pressed="false"><span class="onb2-pick-number">02</span>Your profile</button>
+                </div>
+              </div>
+
+              <div class="onb2-copy">
+                <div class="onb2-copy-block onb2-copy-active" data-onb2-copy="feed">
+                  <h4>Find <em>your people.</em></h4>
+                  <p class="onb-lede-2"><span>Give Aura to moments you love.</span><span>Discover people on your wavelength.</span></p>
+                </div>
+                <div class="onb2-copy-block" data-onb2-copy="profile">
+                  <h4>Make <em>your mark.</em></h4>
+                  <p class="onb-lede-2"><span>Your clips. Your people. Your Aura.</span><span>Let your moments earn their Aura.</span></p>
+                </div>
+              </div>
+
+              <div class="onb1-footer">
+                <div class="onb1-progress" data-active="1" aria-hidden="true"><i></i><i></i><i></i></div>
+                <button type="button" class="btn btn-primary onb1-cta" id="onb2-continue">See the ranks
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>
+                </button>
               </div>
             </div>
-            <h3>Find <em>your people.</em></h3>
-            <p>Give Aura to moments you love. Discover people on your wavelength.</p>
           </article>
 
           <article class="onb-slide" data-index="2">
@@ -623,7 +659,29 @@
     var continueBtn = document.getElementById('onb1-continue');
     if (continueBtn) continueBtn.addEventListener('click', function () { next.click(); });
 
+    var onb2Continue = document.getElementById('onb2-continue');
+    if (onb2Continue) onb2Continue.addEventListener('click', function () { next.click(); });
+
     render();
+  })();
+  </script>
+
+  <script>
+  (function () {
+    var picks = [...document.querySelectorAll('.onb2-pick')];
+    if (!picks.length) return;
+    var scenes = [...document.querySelectorAll('.onb2-scene')];
+    var copies = [...document.querySelectorAll('.onb2-copy-block')];
+
+    function select(name) {
+      picks.forEach(function (btn) { btn.setAttribute('aria-pressed', String(btn.dataset.onb2Pick === name)); });
+      scenes.forEach(function (scene) { scene.classList.toggle('onb2-scene-active', scene.dataset.onb2Scene === name); });
+      copies.forEach(function (block) { block.classList.toggle('onb2-copy-active', block.dataset.onb2Copy === name); });
+    }
+
+    picks.forEach(function (btn) {
+      btn.addEventListener('click', function () { select(btn.dataset.onb2Pick); });
+    });
   })();
   </script>
 
